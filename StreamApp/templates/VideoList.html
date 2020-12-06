@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'StreamApp/styles.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="Nav">
+            <a href="" class="navbutton">Home</a>
+            <a href="" class="navbutton">TV Shows</a>
+            <a href="" class="navbutton">Movies</a>
+            <a href="" class="navbutton">Login</a>
+            <a href="" class="navbutton">Sign Up</a>
+        </div>
+        <div id="Headline"></div>
+        <div id="TVShows">
+            <div id="ShowHeading">Music Videos</div>
+            <div id="Shows">
+                {% for x in List %}
+                <div class="VideoList"><a href="{% url 'Video' x.Video_id %}" class="VideoPlayName">{{x.Video_Name}}</a></div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div id="Movies">Movies</div>
+    </div>
+</body>
+</html>

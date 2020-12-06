@@ -1,0 +1,102 @@
+body{
+    margin: 0%;
+    font-family: monospace;
+}
+#container{
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1fr 1fr;
+    grid-template-areas: 
+    'Nav Nav Nav Nav'
+    'Headline Headline Headline Headline'
+    'Tvshow Tvshow Tvshow Tvshow'
+    'Movie Movie Movie Movie';
+}
+.navbutton{
+    color: magenta;
+    text-decoration: none;
+    border: 1px solid magenta;
+    border-radius: 50px;
+    font-size: 20px;
+    padding: 7px;
+    margin-left: 25px;
+}
+.navbutton:hover{
+    background-color: magenta;
+    color: white;
+    transform: scale(1.1);
+}
+#Nav{
+    background-color:black;
+    grid-area: Nav;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#Headline{
+    grid-area: Headline;
+    font-size: 30px;
+    background: linear-gradient(45deg, magenta, black, pink);
+}
+#TVShows{
+    background-color: #8EE4AF;
+    grid-area: Tvshow;
+    font-size: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 1.5fr;
+    grid-template-areas: 
+    'Heading Heading Heading Heading'
+    'show show show show';
+}
+#ShowHeading{
+    grid-area: Heading;
+    background-color:black ;
+    color:magenta;
+    font-weight: 1000;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: monospace;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#Shows{
+    grid-area: show;
+    background-color: black;
+    color: white;
+    display: flex;
+}
+#Movies{
+    background-color: #EDF5E1;
+    grid-area: Movie;
+    font-size: 30px;
+}
+.VideoList a{
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    border: 2px solid black;
+    padding: 2px;
+}
+.VideoList a:hover{
+    background-color: black;
+    color: magenta;
+    transform: scale(1.1);
+}
+.VideoList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    height: 200px;
+    width: 200px;
+    background: linear-gradient(30deg, magenta, pink, black)
+}
