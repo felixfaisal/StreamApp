@@ -1,16 +1,20 @@
 from django.shortcuts import render
 from .models import VideoInfo
-from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
-
+from .forms import CreateUserForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 
 def Home(request):
-    form = UserCreationForm()
-    context = {"form":form.as_p}
+    form = CreateUserForm()
+    context = {"form":form}
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid:
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, "Account was created for "+ user)
+            
 
     return render(request, "index.html", context)
 
