@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from .models import VideoInfo
-
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 
 def Home(request):
-    context = {}
+    form = UserCreationForm()
+    context = {"form":form.as_p}
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid:
+            form.save()
+
     return render(request, "index.html", context)
 
 
