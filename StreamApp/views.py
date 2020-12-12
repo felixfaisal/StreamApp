@@ -7,6 +7,11 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def Home(request):
+    context = {}
+    return render(request, "index.html", context)
+
+
+def Register(request):
     form = CreateUserForm()
     context = {"form": form}
     if request.method == "POST":
@@ -15,8 +20,9 @@ def Home(request):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, "Account was created for " + user)
+            return redirect('LoginPage')
 
-    return render(request, "index.html", context)
+    return render(request, "register.html", context)
 
 
 def loginPage(request):
