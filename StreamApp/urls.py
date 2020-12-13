@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:id>/Video', views.Video, name='Video'),
     path('VideoList', views.ListAllVideos, name="VideoList"),
     path('login', views.loginPage, name="LoginPage"),
-    path('register', views.Register, name="Register")
+    path('register', views.Register, name="Register"),
+    path('logout', views.logoutUser, name="LogoutUser")
 ]

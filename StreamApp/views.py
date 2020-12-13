@@ -4,8 +4,10 @@ from .models import VideoInfo
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url="LoginPage")
 def Home(request):
     context = {}
     return render(request, "index.html", context)
@@ -25,6 +27,12 @@ def Register(request):
     return render(request, "register.html", context)
 
 
+def logoutUser(request):
+    logout(request)
+    return redirect('LoginPage')
+#
+
+
 def loginPage(request):
     context = {}
     if request.method == "POST":
@@ -37,6 +45,7 @@ def loginPage(request):
     return render(request, "login.html", context)
 
 
+@login_required(login_url="LoginPage")
 def Video(request, id):
     VideoObj = VideoInfo.objects.filter(Video_id=int(id))
     List = [x for x in VideoObj]
@@ -47,6 +56,7 @@ def Video(request, id):
     return render(request, "Video.html", context)
 
 
+@login_required(login_url="LoginPage")
 def ListAllVideos(request):
     List = VideoInfo.objects.all()
     context = {"List": List}

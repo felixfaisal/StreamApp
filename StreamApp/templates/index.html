@@ -1,13 +1,5 @@
 <h1>Felix Stream App</h1>
-<form action="" method="POST">
-    {% csrf_token %} 
-    {{form.username.label}}
-    {{ form.username}}
-    {{form.email.label}}
-    {{ form.email }}
-    {{form.password1.label}}
-    {{ form.password1}}
-    {{form.password2.label}}
-    {{ form.password2}}
-    <input type="submit" name="Create User" />
-</form>
+<h2>
+    Hello {{request.user}} <br>
+    <a href="{% url 'LogoutUser' %}">Logout</a>
+</h2>
